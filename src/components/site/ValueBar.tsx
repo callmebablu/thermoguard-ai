@@ -13,13 +13,13 @@ const items = [
   },
   {
     icon: Eye,
-    title: "Better visibility",
+    title: "Portfolio visibility",
     body: "Continuous panel insight across every site you operate.",
   },
   {
     icon: Wrench,
-    title: "Smarter planning",
-    body: "Prioritise maintenance with evidence, not guesswork.",
+    title: "Evidence-based planning",
+    body: "Prioritise maintenance with data, not guesswork.",
   },
 ];
 

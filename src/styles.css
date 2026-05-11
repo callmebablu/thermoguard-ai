@@ -46,41 +46,49 @@
 :root {
   --radius: 0.625rem;
 
-  --background: oklch(0.17 0.015 250);
+  --background: oklch(0.155 0.018 245);
   --foreground: oklch(0.97 0.005 250);
 
-  --surface: oklch(0.21 0.018 250);
-  --elevated: oklch(0.25 0.02 250);
-  --hairline: oklch(0.32 0.02 250 / 60%);
+  --surface: oklch(0.20 0.018 245);
+  --elevated: oklch(0.245 0.02 245);
+  --hairline: oklch(0.34 0.02 245 / 55%);
 
-  --card: oklch(0.21 0.018 250);
+  --card: oklch(0.20 0.018 245);
   --card-foreground: oklch(0.97 0.005 250);
-  --popover: oklch(0.21 0.018 250);
+  --popover: oklch(0.20 0.018 245);
   --popover-foreground: oklch(0.97 0.005 250);
 
   --primary: oklch(0.82 0.13 205);
-  --primary-foreground: oklch(0.17 0.015 250);
+  --primary-foreground: oklch(0.16 0.015 245);
 
-  --secondary: oklch(0.25 0.02 250);
+  --secondary: oklch(0.245 0.02 245);
   --secondary-foreground: oklch(0.97 0.005 250);
 
-  --muted: oklch(0.23 0.018 250);
-  --muted-foreground: oklch(0.70 0.02 250);
+  --muted: oklch(0.22 0.018 245);
+  --muted-foreground: oklch(0.72 0.018 245);
 
-  --accent: oklch(0.25 0.02 250);
+  --accent: oklch(0.245 0.02 245);
   --accent-foreground: oklch(0.97 0.005 250);
 
   --destructive: oklch(0.68 0.22 25);
   --destructive-foreground: oklch(0.98 0.005 250);
 
-  --border: oklch(0.30 0.02 250 / 60%);
-  --input: oklch(0.30 0.02 250 / 60%);
+  --border: oklch(0.30 0.02 245 / 55%);
+  --input: oklch(0.30 0.02 245 / 55%);
   --ring: oklch(0.82 0.13 205);
 
   --risk-normal: oklch(0.78 0.16 155);
   --risk-watch: oklch(0.82 0.13 205);
   --risk-elevated: oklch(0.82 0.17 80);
   --risk-critical: oklch(0.68 0.22 25);
+
+  --shadow-elevated:
+    inset 0 1px 0 oklch(1 0 0 / 6%),
+    0 1px 2px oklch(0 0 0 / 30%),
+    0 12px 32px oklch(0 0 0 / 35%);
+  --shadow-glow-primary:
+    0 0 0 1px oklch(0.82 0.13 205 / 25%),
+    0 12px 40px oklch(0.82 0.13 205 / 18%);
 }
 
 @layer base {
@@ -100,8 +108,8 @@
     letter-spacing: 0;
     -webkit-font-smoothing: antialiased;
     background-image:
-      radial-gradient(1200px 600px at 80% -10%, oklch(0.30 0.05 210 / 25%), transparent 60%),
-      radial-gradient(900px 500px at -10% 10%, oklch(0.28 0.04 260 / 20%), transparent 60%);
+      radial-gradient(900px 480px at 82% -8%, oklch(0.30 0.05 210 / 16%), transparent 60%),
+      radial-gradient(700px 380px at -6% 6%, oklch(0.26 0.04 260 / 14%), transparent 60%);
     background-attachment: fixed;
   }
 
@@ -112,7 +120,7 @@
 
 @layer utilities {
   .panel {
-    background: linear-gradient(180deg, oklch(0.23 0.018 250 / 80%), oklch(0.20 0.018 250 / 80%));
+    background: linear-gradient(180deg, oklch(0.225 0.018 245 / 80%), oklch(0.195 0.018 245 / 80%));
     border: 1px solid var(--hairline);
     border-radius: var(--radius-lg);
     box-shadow:
@@ -122,12 +130,18 @@
   }
 
   .panel-strong {
-    background: linear-gradient(180deg, oklch(0.26 0.02 250 / 90%), oklch(0.21 0.018 250 / 90%));
+    background: linear-gradient(180deg, oklch(0.255 0.02 245 / 92%), oklch(0.205 0.018 245 / 92%));
     border: 1px solid var(--hairline);
     border-radius: var(--radius-lg);
-    box-shadow:
-      inset 0 1px 0 oklch(1 0 0 / 6%),
-      0 8px 24px oklch(0 0 0 / 40%);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .panel-inset {
+    background:
+      linear-gradient(180deg, oklch(0.16 0.018 245 / 80%), oklch(0.18 0.018 245 / 80%));
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    box-shadow: inset 0 1px 0 oklch(0 0 0 / 25%);
   }
 
   .hairline {
@@ -137,6 +151,27 @@
   .text-mono {
     font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, oklch(0.34 0.02 245 / 12%) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(0.34 0.02 245 / 12%) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+
+  .kbd {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--hairline);
+    background: oklch(0.245 0.02 245 / 80%);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted-foreground);
   }
 
   .reveal {
@@ -164,5 +199,20 @@
   @keyframes pulseRing {
     0%   { transform: scale(0.6); opacity: 0.7; }
     100% { transform: scale(1.6); opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .pulse-dot::after {
+      animation: none;
+      display: none;
+    }
+    html {
+      scroll-behavior: auto;
+    }
   }
 }

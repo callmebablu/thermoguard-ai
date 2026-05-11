@@ -1,44 +1,39 @@
-import { CalendarX, EyeOff, FileX2, PowerOff, Timer } from "lucide-react";
+import { CalendarX, EyeOff, PowerOff, Timer } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 
 const problems = [
   {
     icon: CalendarX,
-    title: "Periodic inspections miss intermittent faults",
-    body: "Quarterly or annual thermography only captures a snapshot. Load-driven and intermittent thermal anomalies are easily missed between checks.",
+    title: "Periodic inspection misses intermittent faults",
+    body: "Quarterly or annual thermography only captures a snapshot. Load-driven and intermittent anomalies are easily missed between checks.",
   },
   {
     icon: EyeOff,
     title: "Blind spots between scheduled checks",
-    body: "Most assets go unmonitored for weeks or months at a time, leaving operations exposed to drift and degradation.",
+    body: "Most assets go unmonitored for weeks at a time, leaving operations exposed to drift and slow degradation.",
   },
   {
     icon: PowerOff,
     title: "Unplanned downtime is costly",
-    body: "Failures in critical panels and switchgear can halt production, disrupt tenants, or impact uptime SLAs.",
+    body: "Failures in critical panels and switchgear halt production, disrupt tenants, or impact uptime SLAs.",
   },
   {
     icon: Timer,
-    title: "Slow escalation when issues appear",
-    body: "Reports often reach the right people too late, after a fault has already affected operations.",
-  },
-  {
-    icon: FileX2,
-    title: "Limited maintenance evidence",
-    body: "Without continuous data, it's hard to demonstrate condition over time or justify capital decisions.",
+    title: "Escalations arrive too late",
+    body: "Reports often reach the right people only after a fault has already affected operations.",
   },
 ];
 
 export function ProblemSection() {
   return (
-    <section className="mt-28 sm:mt-36">
+    <section className="mt-24 sm:mt-32 lg:mt-40">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="The problem"
           title="Periodic inspection isn't enough for critical electrical assets."
-          description="Thermal faults are one of the earliest indicators of electrical asset distress — but they don't wait for the next scheduled check."
+          description="Thermal faults are one of the earliest indicators of electrical asset distress — and they don't wait for the next scheduled check."
         />
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-4 md:grid-cols-2">
           {problems.map((p) => (
             <div key={p.title} className="panel reveal p-6">
               <p.icon className="h-5 w-5 text-[var(--risk-elevated)]" />

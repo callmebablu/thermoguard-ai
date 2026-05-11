@@ -72,18 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ThermoGuard AI — Continuous thermal-risk intelligence for electrical assets" },
+      { title: "ThermoGuard AI — Continuous Thermal-Risk Intelligence" },
       {
         name: "description",
         content:
-          "AI-assisted thermal monitoring for electrical panels and critical power environments. Detect anomalies earlier, prioritise maintenance, and reduce avoidable downtime.",
+          "AI-assisted thermal-risk monitoring for electrical panels, switchgear, and critical power environments. Detect anomalies earlier and prioritise maintenance.",
       },
       { name: "author", content: "ThermoGuard AI" },
-      { property: "og:title", content: "ThermoGuard AI — Thermal-risk intelligence for critical power" },
+      { property: "og:title", content: "ThermoGuard AI — Thermal-Risk Intelligence" },
       {
         property: "og:description",
         content:
-          "Continuous thermal monitoring, AI-assisted anomaly detection, and configurable alerts for electrical panels and switchgear.",
+          "Continuous thermal monitoring, AI-assisted anomaly detection, and risk-scored alerts for electrical panels and switchgear.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -92,6 +92,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         name: "twitter:description",
         content:
           "Continuous thermal-risk intelligence for critical electrical environments.",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: "ThermoGuard AI",
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Web",
+          description:
+            "AI-assisted thermal-risk monitoring and predictive maintenance platform for electrical panels, switchgear, and critical power environments.",
+        }),
       },
     ],
     links: [
