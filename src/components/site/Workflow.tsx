@@ -1,6 +1,4 @@
-import { Fragment } from "react";
 import {
-  ArrowRight,
   BellRing,
   ClipboardCheck,
   FileBarChart,
@@ -39,7 +37,7 @@ const steps = [
 
 export function Workflow() {
   return (
-    <section id="workflow" className="mt-28 sm:mt-36">
+    <section id="workflow" className="mt-24 sm:mt-32 lg:mt-40">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Workflow"
@@ -47,62 +45,51 @@ export function Workflow() {
           description="A clear, repeatable loop from continuous monitoring to action — designed to fit existing maintenance and operations processes."
         />
 
-        <div className="mt-12 hidden lg:block">
-          <div className="grid grid-cols-9 items-stretch gap-0">
+        {/* Desktop: rail + circles */}
+        <div className="relative mt-14 hidden lg:block">
+          <div className="absolute left-[6%] right-[6%] top-6 h-px bg-[var(--hairline)]" />
+          <ol className="relative grid grid-cols-5 gap-4">
             {steps.map((s, i) => (
-              <Fragment key={s.title}>
-                <div className="col-span-1 reveal">
-                  <StepCard step={i + 1} {...s} />
+              <li key={s.title} className="reveal flex flex-col items-center text-center">
+                <div className="grid h-12 w-12 place-items-center rounded-full border border-[var(--hairline)] bg-background ring-1 ring-primary/25">
+                  <s.icon className="h-5 w-5 text-primary" />
                 </div>
-                {i < steps.length - 1 && (
-                  <div className="col-span-1 flex items-center justify-center text-muted-foreground">
-                    <ArrowRight className="h-5 w-5" />
-                  </div>
-                )}
-              </Fragment>
+                <div className="mt-3 text-mono text-[11px] uppercase text-muted-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <div className="mt-0.5 text-base font-semibold">{s.title}</div>
+                <div className="mt-2 max-w-[16rem] text-sm text-muted-foreground">
+                  {s.body}
+                </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
 
-        <ol className="mt-12 space-y-3 lg:hidden">
+        {/* Mobile: vertical rail */}
+        <ol className="relative mt-12 space-y-4 pl-8 lg:hidden">
+          <span
+            aria-hidden
+            className="absolute left-[15px] top-2 bottom-2 w-px bg-[var(--hairline)]"
+          />
           {steps.map((s, i) => (
-            <li key={s.title} className="reveal">
-              <StepCard step={i + 1} {...s} horizontal />
+            <li key={s.title} className="reveal relative">
+              <span className="absolute -left-8 grid h-8 w-8 place-items-center rounded-full border border-[var(--hairline)] bg-background ring-1 ring-primary/25">
+                <s.icon className="h-4 w-4 text-primary" />
+              </span>
+              <div className="panel p-4">
+                <div className="text-mono text-[11px] uppercase text-muted-foreground">
+                  Step {String(i + 1).padStart(2, "0")}
+                </div>
+                <div className="mt-0.5 text-base font-semibold">{s.title}</div>
+                <div className="mt-1 text-sm text-muted-foreground">
+                  {s.body}
+                </div>
+              </div>
             </li>
           ))}
         </ol>
       </div>
     </section>
-  );
-}
-
-function StepCard({
-  step,
-  icon: Icon,
-  title,
-  body,
-  horizontal,
-}: {
-  step: number;
-  icon: typeof Radar;
-  title: string;
-  body: string;
-  horizontal?: boolean;
-}) {
-  return (
-    <div className={`panel h-full p-5 ${horizontal ? "flex items-start gap-4" : ""}`}>
-      <div
-        className={`grid h-10 w-10 shrink-0 place-items-center rounded-md bg-primary/10 ring-1 ring-primary/25`}
-      >
-        <Icon className="h-5 w-5 text-primary" />
-      </div>
-      <div className={horizontal ? "" : "mt-4"}>
-        <div className="text-mono text-xs text-muted-foreground">
-          Step {step.toString().padStart(2, "0")}
-        </div>
-        <div className="text-base font-semibold">{title}</div>
-        <div className="mt-1 text-sm text-muted-foreground">{body}</div>
-      </div>
-    </div>
   );
 }
