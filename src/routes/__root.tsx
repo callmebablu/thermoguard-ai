@@ -72,19 +72,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "ThermoGuard AI — Continuous thermal-risk intelligence for electrical assets" },
+      {
+        name: "description",
+        content:
+          "AI-assisted thermal monitoring for electrical panels and critical power environments. Detect anomalies earlier, prioritise maintenance, and reduce avoidable downtime.",
+      },
+      { name: "author", content: "ThermoGuard AI" },
+      { property: "og:title", content: "ThermoGuard AI — Thermal-risk intelligence for critical power" },
+      {
+        property: "og:description",
+        content:
+          "Continuous thermal monitoring, AI-assisted anomaly detection, and configurable alerts for electrical panels and switchgear.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "ThermoGuard AI" },
+      {
+        name: "twitter:description",
+        content:
+          "Continuous thermal-risk intelligence for critical electrical environments.",
+      },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
       },
     ],
   }),

@@ -1,26 +1,38 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/site/Header";
+import { Hero } from "@/components/site/Hero";
+import { ValueBar } from "@/components/site/ValueBar";
+import { ProblemSection } from "@/components/site/ProblemSection";
+import { PlatformSection } from "@/components/site/PlatformSection";
+import { RiskIntelligence } from "@/components/site/RiskIntelligence";
+import { UseCases } from "@/components/site/UseCases";
+import { Workflow } from "@/components/site/Workflow";
+import { DashboardPreview } from "@/components/site/DashboardPreview";
+import { FinalCTA } from "@/components/site/FinalCTA";
+import { Footer } from "@/components/site/Footer";
+import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Index() {
+  useReveal();
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen">
+      <Header />
+      <main>
+        <Hero />
+        <ValueBar />
+        <ProblemSection />
+        <PlatformSection />
+        <RiskIntelligence />
+        <UseCases />
+        <Workflow />
+        <DashboardPreview />
+        <FinalCTA />
+      </main>
+      <Footer />
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
