@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import {
   ArrowRight,
   BellRing,
@@ -49,19 +50,16 @@ export function Workflow() {
         <div className="mt-12 hidden lg:block">
           <div className="grid grid-cols-9 items-stretch gap-0">
             {steps.map((s, i) => (
-              <>
-                <div key={s.title} className="col-span-1 reveal">
+              <Fragment key={s.title}>
+                <div className="col-span-1 reveal">
                   <StepCard step={i + 1} {...s} />
                 </div>
                 {i < steps.length - 1 && (
-                  <div
-                    key={`sep-${i}`}
-                    className="col-span-1 flex items-center justify-center text-muted-foreground"
-                  >
+                  <div className="col-span-1 flex items-center justify-center text-muted-foreground">
                     <ArrowRight className="h-5 w-5" />
                   </div>
                 )}
-              </>
+              </Fragment>
             ))}
           </div>
         </div>
