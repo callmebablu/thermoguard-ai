@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "AI-assisted thermal-risk monitoring for electrical panels, switchgear, and critical power environments. Detect anomalies earlier and prioritise maintenance.",
       },
       { name: "author", content: "ThermoGuard AI" },
-      { property: "og:title", content: "ThermoGuard AI — Thermal-Risk Intelligence" },
+      { property: "og:title", content: "ThermoGuard AI — Continuous Thermal-Risk Intelligence" },
       {
         property: "og:description",
         content:
@@ -87,12 +87,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "ThermoGuard AI" },
+      { name: "twitter:title", content: "ThermoGuard AI — Continuous Thermal-Risk Intelligence" },
       {
         name: "twitter:description",
         content:
           "Continuous thermal-risk intelligence for critical electrical environments.",
       },
+      { name: "description", content: "ThermoGuard AI monitors electrical panels for thermal risks, detecting anomalies early for predictive maintenance." },
+      { property: "og:description", content: "ThermoGuard AI monitors electrical panels for thermal risks, detecting anomalies early for predictive maintenance." },
+      { name: "twitter:description", content: "ThermoGuard AI monitors electrical panels for thermal risks, detecting anomalies early for predictive maintenance." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/sgsiVzzK6HfSnH9NDk0uolRzx4M2/social-images/social-1778677390305-file_000000004e6072439aeda9f5f931818c.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/sgsiVzzK6HfSnH9NDk0uolRzx4M2/social-images/social-1778677390305-file_000000004e6072439aeda9f5f931818c.webp" },
     ],
     scripts: [
       {
