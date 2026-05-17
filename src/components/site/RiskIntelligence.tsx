@@ -85,7 +85,7 @@ export function RiskIntelligence() {
             <div className="panel-strong relative overflow-hidden p-2">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_35%_20%,oklch(0.82_0.13_205_/_14%),transparent_38%)]" />
               <img
-                src="/sections/risk%20intelligence/risk-intelligence-operating-states.png"
+                src="/sections/risk-intelligence/risk-intelligence-operating-states.png"
                 alt="ThermoGuard AI gateway, wireless sensor, and four colour-coded operating state cards"
                 className="relative aspect-[16/11] w-full rounded-[calc(var(--radius-lg)-0.25rem)] object-cover"
                 loading="lazy"
