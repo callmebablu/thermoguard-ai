@@ -1,43 +1,26 @@
-import {
-  Activity,
-  BellRing,
-  Brain,
-  ClipboardList,
-  LineChart,
-  ShieldAlert,
-} from "lucide-react";
+import { BellRing, FileBarChart, LineChart, Network } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 
 const cards = [
   {
-    icon: Activity,
-    title: "Real-time thermal monitoring",
-    body: "Live temperature visibility across panels, switchgear, and critical assets.",
-  },
-  {
-    icon: Brain,
-    title: "AI anomaly detection",
-    body: "Thermal deviations and drift surfaced as practical maintenance signals.",
-  },
-  {
-    icon: ShieldAlert,
-    title: "Risk scoring & prioritisation",
-    body: "Asset-level scores help teams prioritise attention across sites.",
+    icon: Network,
+    title: "Multi-site asset context",
+    body: "Organise monitored panels, switchgear, and critical assets by site, owner, and operating priority.",
   },
   {
     icon: BellRing,
-    title: "Alerts & escalation history",
-    body: "Configurable notifications with a record of alert activity.",
+    title: "Configurable escalation",
+    body: "Route risk-state changes to the right maintenance or operations contact based on agreed workflows.",
   },
   {
     icon: LineChart,
-    title: "Trend analysis",
-    body: "Temperature trends across phases, panels, and monitored locations.",
+    title: "Trend visibility",
+    body: "Review temperature movement across assets and phases without losing the operational context.",
   },
   {
-    icon: ClipboardList,
-    title: "Recommended maintenance actions",
-    body: "Decision-support prompts for inspection and maintenance planning.",
+    icon: FileBarChart,
+    title: "Reporting evidence",
+    body: "Keep alert history, response notes, and monitoring records available for review and planning.",
   },
 ];
 
@@ -47,10 +30,10 @@ export function PlatformSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Platform"
-          title="A decision-support layer for electrical thermal risk."
-          description="Everything operations and maintenance teams need to move from reactive thermography to continuous thermal awareness."
+          title="The operating layer around the product journey."
+          description="After thermal risk is detected and classified, the platform keeps the surrounding operational context clear: sites, owners, trends, escalations, and evidence."
         />
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {cards.map((c) => (
             <div
               key={c.title}
@@ -60,9 +43,7 @@ export function PlatformSection() {
                 <c.icon className="h-5 w-5 text-primary" />
               </div>
               <div className="mt-4 text-base font-semibold">{c.title}</div>
-              <div className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {c.body}
-              </div>
+              <div className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.body}</div>
             </div>
           ))}
         </div>

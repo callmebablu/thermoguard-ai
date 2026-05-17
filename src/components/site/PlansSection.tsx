@@ -1,103 +1,124 @@
-import {
-  ArrowRight,
-  Building2,
-  CheckCircle2,
-  Factory,
-  Network,
-} from "lucide-react";
+import { ArrowRight, Boxes, Building2, CheckCircle2, Factory } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "./SectionHeading";
 
 const plans = [
   {
     icon: Building2,
-    name: "Starter",
-    fit: "For teams beginning with critical panel monitoring.",
-    scope: "Single-site deployment scoping",
-    cta: "Request Quote",
+    name: "Starter Kit",
+    fit: "For single-room or entry-level thermal monitoring.",
+    price: "£899 + VAT",
+    note: "1 gateway + 1 wireless sensor",
+    badge: "Best place to start",
+    cta: "Get Starter Kit",
+    featured: true,
     features: [
-      "Priority panel monitoring plan",
-      "Risk-state dashboard access",
-      "Configurable alert workflow",
-      "Maintenance evidence history",
+      "1 gateway unit",
+      "1 wireless sensor",
+      "Dashboard access",
+      "Risk-state monitoring",
+      "Alerts",
+      "Evidence history",
+      "Standard setup support",
     ],
   },
   {
-    icon: Network,
+    icon: Boxes,
     name: "Professional",
-    fit: "For multi-panel and multi-site operations.",
-    scope: "Portfolio-ready rollout planning",
+    fit: "For multi-room, multi-sensor, or advanced deployment needs.",
+    price: "Custom quote",
+    note: "Final pricing depends on deployment scope and setup requirements.",
     cta: "Talk to Sales",
-    featured: true,
     features: [
-      "Multi-site operational visibility",
-      "Asset risk prioritisation",
-      "Alert lifecycle tracking",
-      "Reporting export readiness",
+      "Expanded sensor coverage",
+      "Multi-zone monitoring",
+      "Tailored deployment planning",
+      "Optional maintenance workflow alignment",
+      "Reporting/export requirements",
+      "Deployment-specific setup costing",
     ],
   },
   {
     icon: Factory,
     name: "Enterprise",
-    fit: "For custom deployment, integrations, analytics, and support.",
-    scope: "Custom architecture and support model",
-    cta: "Contact Sales",
+    fit: "For larger businesses, enterprise workflows, and ongoing platform needs.",
+    price: "Custom setup + subscription",
+    note: "Setup cost is calculated in advance; subscription support is scoped if required.",
+    cta: "Request Enterprise Plan",
     features: [
-      "Integration pathway scoping",
-      "Advanced reporting requirements",
-      "Custom escalation ownership",
-      "Managed rollout support",
+      "Larger-scale deployments",
+      "Optional integrations",
+      "Cooling/fan control pathways",
+      "Custom escalation rules",
+      "Enterprise reporting needs",
+      "Subscription-based support/model if required",
+      "Setup cost calculated in advance",
     ],
   },
 ];
 
 export function PlansSection() {
   return (
-    <section id="plans" className="mt-24 sm:mt-32 lg:mt-40">
+    <section id="pricing" className="mt-24 sm:mt-32 lg:mt-40">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Plans"
-          title="Commercial pathways shaped around site requirements."
-          description="Each plan starts with the same discovery conversation, then scopes asset count, site complexity, alert workflows, reporting needs, and integration readiness."
+          eyebrow="Pricing"
+          title="Choose the ThermoGuard AI setup that fits your operation"
+          description="Start with a single gateway and wireless sensor, or scale into a custom deployment with enterprise workflows, integrations, and subscription support."
+          align="center"
         />
 
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {plans.map((plan) => (
-            <div
+            <article
               key={plan.name}
-              className={`reveal flex flex-col p-6 ${
-                plan.featured ? "panel-strong" : "panel"
+              className={`pricing-card reveal group flex flex-col p-6 ${
+                plan.featured ? "pricing-card-featured lg:-translate-y-3" : ""
               }`}
             >
               <div className="flex items-start justify-between gap-4">
-                <div className="grid h-11 w-11 place-items-center rounded-md bg-primary/10 ring-1 ring-primary/25">
-                  <plan.icon className="h-5 w-5 text-primary" />
+                <div className="grid h-11 w-11 place-items-center rounded-md bg-primary/10 ring-1 ring-primary/25 transition group-hover:bg-primary/15 group-hover:ring-primary/45">
+                  <plan.icon aria-hidden="true" className="h-5 w-5 text-primary" />
                 </div>
-                {plan.featured && (
-                  <span className="rounded-full border border-primary/25 bg-primary/10 px-2.5 py-1 text-mono text-[10px] uppercase text-primary">
-                    Common fit
-                  </span>
-                )}
+                <span
+                  className={`rounded-full border px-2.5 py-1 text-mono text-[10px] uppercase ${
+                    plan.featured
+                      ? "border-primary/35 bg-primary/15 text-primary"
+                      : "border-[var(--hairline)] bg-elevated/50 text-muted-foreground"
+                  }`}
+                >
+                  {plan.badge ?? "Scoped plan"}
+                </span>
               </div>
 
               <div className="mt-5">
                 <h3 className="text-xl font-semibold">{plan.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {plan.fit}
-                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{plan.fit}</p>
               </div>
 
-              <div className="mt-5 rounded-md border border-[var(--hairline)] bg-elevated/45 px-3 py-2">
+              <div className="mt-6 rounded-md border border-[var(--hairline)] bg-background/35 p-4">
                 <div className="text-mono text-[10px] uppercase text-muted-foreground">
-                  Commercial basis
+                  Plan basis
                 </div>
-                <div className="mt-1 text-sm font-medium">{plan.scope}</div>
+                <div
+                  className={`mt-2 font-semibold tracking-tight ${
+                    plan.featured ? "text-4xl text-primary sm:text-5xl" : "text-2xl"
+                  }`}
+                >
+                  {plan.price}
+                </div>
+                <div className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                  {plan.note}
+                </div>
               </div>
 
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-6 space-y-3">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-2 text-sm">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <CheckCircle2
+                      aria-hidden="true"
+                      className="mt-0.5 h-4 w-4 shrink-0 text-primary"
+                    />
                     <span className="text-muted-foreground">{feature}</span>
                   </li>
                 ))}
@@ -106,20 +127,20 @@ export function PlansSection() {
               <Button
                 asChild
                 variant={plan.featured ? "default" : "outline"}
-                className="mt-6 w-full justify-between"
+                className="mt-6 w-full justify-between group-hover:border-primary/50 group-hover:shadow-[0_0_24px_oklch(0.82_0.13_205_/_12%)]"
               >
                 <a href="#contact">
                   {plan.cta}
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight aria-hidden="true" className="h-4 w-4" />
                 </a>
               </Button>
-            </div>
+            </article>
           ))}
         </div>
 
-        <p className="reveal mt-5 max-w-3xl text-xs leading-relaxed text-muted-foreground">
-          Request a quote, talk to sales, or contact sales all begin with a
-          demo-led scoping conversation. No fixed public pricing is shown.
+        <p className="reveal mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-muted-foreground">
+          Larger deployments are priced according to setup scope, sensor count, integration needs,
+          and support requirements.
         </p>
       </div>
     </section>

@@ -1,10 +1,4 @@
-import {
-  Activity,
-  Brain,
-  ClipboardCheck,
-  Gauge,
-  Radio,
-} from "lucide-react";
+import { Activity, Brain, Gauge, Radio } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 
 const stages = [
@@ -28,11 +22,6 @@ const stages = [
     label: "Risk score",
     body: "Thermal signals converted into a prioritised asset risk score.",
   },
-  {
-    icon: ClipboardCheck,
-    label: "Decision input",
-    body: "Scored context prepared for maintenance review and planning.",
-  },
 ];
 
 const factors = [
@@ -48,8 +37,8 @@ export function RiskEngine() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="AI Engine"
-          title="How heat data becomes maintenance intelligence."
-          description="A transparent signal pipeline that turns raw thermal telemetry into scored context for maintenance decisions."
+          title="The scoring detail behind each risk state."
+          description="The product journey explains the loop. This section shows the technical scoring layer that supports each Normal, Watch, Elevated, or Critical classification."
         />
 
         <div className="mt-12 grid gap-6 lg:grid-cols-12">
@@ -65,13 +54,9 @@ export function RiskEngine() {
                       <span className="text-mono text-[11px] uppercase text-muted-foreground">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="text-[15px] font-semibold">
-                        {s.label}
-                      </span>
+                      <span className="text-[15px] font-semibold">{s.label}</span>
                     </div>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      {s.body}
-                    </p>
+                    <p className="mt-1 text-sm text-muted-foreground">{s.body}</p>
                   </div>
                 </li>
               ))}
@@ -106,9 +91,7 @@ export function RiskEngine() {
                 ))}
               </div>
               <div className="mt-5 flex items-center justify-between border-t border-[var(--hairline)] pt-3">
-                <span className="text-xs text-muted-foreground">
-                  Composite score
-                </span>
+                <span className="text-xs text-muted-foreground">Composite score</span>
                 <span className="text-mono text-lg font-semibold text-[var(--risk-critical)]">
                   87 / 100
                 </span>
@@ -116,8 +99,7 @@ export function RiskEngine() {
             </div>
 
             <p className="reveal text-xs text-muted-foreground">
-              Models are advisory. Final action remains with qualified
-              maintenance personnel.
+              Models are advisory. Final action remains with qualified maintenance personnel.
             </p>
           </div>
         </div>

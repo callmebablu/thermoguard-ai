@@ -1,13 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
-import { ValueBar } from "@/components/site/ValueBar";
-import { ProblemSection } from "@/components/site/ProblemSection";
-import { PlatformSection } from "@/components/site/PlatformSection";
-import { RiskEngine } from "@/components/site/RiskEngine";
+import { ProductUnderstandingStrip } from "@/components/site/ProductUnderstandingStrip";
+import { ProductStorytelling } from "@/components/site/ProductStorytelling";
 import { RiskIntelligence } from "@/components/site/RiskIntelligence";
 import { UseCases } from "@/components/site/UseCases";
-import { Workflow } from "@/components/site/Workflow";
 import { IntegrationsSection } from "@/components/site/IntegrationsSection";
 import { PlansSection } from "@/components/site/PlansSection";
 import { Comparison } from "@/components/site/Comparison";
@@ -27,14 +24,11 @@ function Index() {
       <Header />
       <main>
         <Hero />
-        <ValueBar />
-        <ProblemSection />
-        <PlatformSection />
-        <RiskEngine />
+        <ProductUnderstandingStrip />
+        <ProductStorytelling />
         <RiskIntelligence />
         <DashboardPreview />
         <UseCases />
-        <Workflow />
         <IntegrationsSection />
         <PlansSection />
         <Comparison />

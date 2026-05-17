@@ -4,13 +4,11 @@ import { Button } from "@/components/ui/button";
 import { useScrollSpy } from "@/hooks/use-scroll-spy";
 
 const links = [
-  { href: "#platform", id: "platform", label: "Platform" },
-  { href: "#risk-engine", id: "risk-engine", label: "AI Engine" },
-  { href: "#dashboard", id: "dashboard", label: "Dashboard" },
+  { href: "#how-it-works", id: "how-it-works", label: "How It Works" },
   { href: "#use-cases", id: "use-cases", label: "Use Cases" },
   { href: "#integrations", id: "integrations", label: "Integrations" },
-  { href: "#plans", id: "plans", label: "Plans" },
-  { href: "#contact", id: "contact", label: "Demo" },
+  { href: "#pricing", id: "pricing", label: "Pricing" },
+  { href: "#contact", id: "contact", label: "Book Demo" },
 ];
 
 export function Header() {
@@ -53,9 +51,7 @@ export function Header() {
           <span className="grid h-8 w-8 place-items-center rounded-md bg-primary/15 ring-1 ring-primary/30">
             <Zap className="h-4 w-4 text-primary" />
           </span>
-          <span className="text-[15px] font-semibold tracking-tight">
-            ThermoGuard AI
-          </span>
+          <span className="text-[15px] font-semibold tracking-tight">ThermoGuard AI</span>
           <span className="hidden h-5 items-center rounded border border-[var(--hairline)] bg-elevated/60 px-1.5 text-[10px] uppercase text-muted-foreground sm:inline-flex">
             Platform
           </span>
@@ -69,9 +65,7 @@ export function Header() {
                 key={l.href}
                 href={l.href}
                 className={`text-sm transition-colors ${
-                  isActive
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                  isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {l.label}
@@ -82,7 +76,7 @@ export function Header() {
 
         <div className="hidden items-center lg:flex">
           <Button asChild size="sm">
-            <a href="#contact">Request demo</a>
+            <a href="#contact">Book demo</a>
           </Button>
         </div>
 
@@ -126,7 +120,7 @@ export function Header() {
           ))}
           <Button asChild className="mt-3 h-11 w-full">
             <a href="#contact" onClick={() => setOpen(false)}>
-              Request demo
+              Book demo
             </a>
           </Button>
           <div className="mt-3 flex items-center gap-2 px-3 text-xs text-muted-foreground">

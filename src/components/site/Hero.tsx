@@ -1,6 +1,5 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { DashboardMock } from "@/components/mocks/DashboardMock";
 
 const proof = [
   "Always-on monitoring",
@@ -11,16 +10,14 @@ const proof = [
 
 export function Hero() {
   return (
-    <section
-      id="top"
-      className="relative overflow-hidden pt-28 sm:pt-32 lg:pt-40"
-    >
+    <section id="top" className="relative overflow-hidden pt-24 sm:pt-28 lg:pt-32">
+      <div aria-hidden className="grid-bg absolute inset-x-0 top-0 -z-10 h-[760px] opacity-35" />
       <div
         aria-hidden
-        className="grid-bg absolute inset-x-0 top-0 -z-10 h-[680px] opacity-40"
+        className="absolute inset-x-0 top-0 -z-10 h-[760px] bg-[radial-gradient(ellipse_at_76%_28%,oklch(0.78_0.12_205/0.18),transparent_52%),radial-gradient(ellipse_at_8%_18%,oklch(0.32_0.05_250/0.24),transparent_48%)]"
       />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-12">
+        <div className="grid items-center gap-10 lg:grid-cols-12">
           <div className="order-2 lg:order-1 lg:col-span-5">
             <div className="reveal">
               <span className="inline-flex items-center gap-2 rounded-full border border-[var(--hairline)] bg-surface/80 px-3 py-1 text-mono text-[11px] text-muted-foreground">
@@ -31,27 +28,21 @@ export function Hero() {
                 className="mt-5 max-w-2xl font-semibold leading-[1.07]"
                 style={{ fontSize: "clamp(2.25rem, 4.4vw, 3.45rem)" }}
               >
-                Continuous thermal-risk intelligence for critical electrical
-                infrastructure.
+                Thermal-risk intelligence for critical electrical assets.
               </h1>
               <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-base">
-                ThermoGuard AI continuously monitors panel and switchgear
-                temperatures, applies{" "}
-                <span className="text-foreground">
-                  AI-assisted anomaly detection
-                </span>
-                , and routes risk-scored alerts to the right teams — so issues
-                can be addressed before they contribute to downtime risk.
+                ThermoGuard AI learns thermal and load behaviour, predicts heat build-up, and helps
+                teams act before risk escalates.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <Button asChild size="lg">
                   <a href="#contact">
-                    Request demo
+                    Book a demo
                     <ArrowRight className="ml-1.5 h-4 w-4" />
                   </a>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <a href="#platform">Explore platform</a>
+                  <a href="#how-it-works">See how it works</a>
                 </Button>
               </div>
 
@@ -67,12 +58,27 @@ export function Hero() {
           </div>
 
           <div className="order-1 lg:order-2 lg:col-span-7">
-            <div className="reveal relative">
+            <div className="reveal relative lg:-mr-10 lg:scale-[1.06]">
               <div
                 aria-hidden
-                className="absolute -inset-6 -z-10 rounded-[2rem] bg-[radial-gradient(ellipse_at_top,oklch(0.82_0.13_205/0.16),transparent_60%)] blur-2xl"
+                className="absolute -inset-10 -z-10 rounded-[2rem] bg-[radial-gradient(ellipse_at_center,oklch(0.82_0.13_205/0.24),transparent_66%)] blur-2xl"
               />
-              <DashboardMock />
+              <div className="relative overflow-hidden rounded-md bg-transparent">
+                <video
+                  className="aspect-video w-full object-cover brightness-[1.14] contrast-[1.07] saturate-[1.05]"
+                  src="/media/hero/thermoguard-hero.mp4"
+                  poster="/thermoguard-hero-poster.jpg"
+                  autoPlay
+                  muted
+                  playsInline
+                  preload="metadata"
+                  aria-label="ThermoGuard AI gateway and thermal sensor cinematic product reveal"
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,oklch(0.155_0.018_245/0.28),transparent_20%),linear-gradient(180deg,oklch(0.155_0.018_245/0.04),transparent_26%,oklch(0.155_0.018_245/0.14))] ring-1 ring-inset ring-white/5"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -2,11 +2,11 @@ import { Zap } from "lucide-react";
 
 const groups = [
   {
-    title: "Platform",
+    title: "Product",
     links: [
-      { label: "Overview", href: "#platform" },
-      { label: "AI Engine", href: "#risk-engine" },
-      { label: "Dashboard", href: "#dashboard" },
+      { label: "How It Works", href: "#how-it-works" },
+      { label: "Platform", href: "#platform" },
+      { label: "Risk Intelligence", href: "#risk" },
       { label: "Use Cases", href: "#use-cases" },
     ],
   },
@@ -14,7 +14,7 @@ const groups = [
     title: "Commercial",
     links: [
       { label: "Integrations", href: "#integrations" },
-      { label: "Plans", href: "#plans" },
+      { label: "Pricing", href: "#pricing" },
       { label: "Continuous vs Periodic", href: "#comparison" },
     ],
   },
@@ -41,8 +41,8 @@ export function Footer() {
               <span className="text-base font-semibold">ThermoGuard AI</span>
             </div>
             <p className="mt-4 max-w-md text-sm text-muted-foreground">
-              AI-assisted thermal-risk monitoring for electrical panels,
-              switchgear rooms, and critical power environments.
+              AI-assisted thermal-risk monitoring for electrical panels, switchgear rooms, and
+              critical power environments.
             </p>
             <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[var(--hairline)] bg-elevated/60 px-3 py-1 text-mono text-[11px] text-muted-foreground">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--risk-normal)] pulse-dot text-[var(--risk-normal)]" />
@@ -76,9 +76,8 @@ export function Footer() {
         <div className="mt-12 flex flex-col gap-3 border-t border-[var(--hairline)] pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <div>© {new Date().getFullYear()} ThermoGuard AI. All rights reserved.</div>
           <div className="max-w-2xl sm:text-right">
-            ThermoGuard AI is a decision-support platform and does not replace
-            qualified electrical inspection or statutory maintenance
-            requirements.
+            ThermoGuard AI is a decision-support platform and does not replace qualified electrical
+            inspection or statutory maintenance requirements.
           </div>
         </div>
       </div>
